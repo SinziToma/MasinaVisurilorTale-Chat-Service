@@ -20,7 +20,7 @@ config :chats, Chats.Repo,
   adapter: Ecto.Adapters.MySQL,
   database: "2yb27RXhgl",
   username: "2yb27RXhgl",
-  password: "wpHYeYqqOj",
+  password: "MI1zFIUqQh",
   hostname: "remotemysql.com"
 #  database: "masina_visurilor_tale",
 #  username: "root",
