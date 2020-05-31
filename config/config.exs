@@ -14,6 +14,7 @@ config :chats,
   api_version: 2,
   api_prefix: "http",
   match_service_url: "https://elixir-match-service.azurewebsites.net",
+  account_service_url: "https://elixir-account-service.azurewebsites.net",
   rabbitmq_host: "amqp://hiiscdyn:r82F2WHFvJ8cGyb6ZVabMbzvprfKk92O@rattlesnake.rmq.cloudamqp.com/hiiscdyn"
 
 config :chats, Chats.Repo,
