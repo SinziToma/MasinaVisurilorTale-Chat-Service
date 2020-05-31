@@ -43,9 +43,10 @@ defmodule Chats.Router do
   post "/send-message" do
     Logger.debug inspect(conn.body_params)
 
-    {matched_contact_id, message_owner, message_text} = {
+    {matched_contact_id, message_owner, message_receiver, message_text} = {
       Map.get(conn.body_params, "matched_contact_id", nil),
       Map.get(conn.body_params, "message_owner", nil),
+      Map.get(conn.body_params, "message_receiver", nil),
       Map.get(conn.body_params, "message_text", nil)
     }
 
@@ -84,7 +85,8 @@ defmodule Chats.Router do
               {:ok, connection} ->
                 case AMQP.Channel.open(connection) do
                   {:ok, channel} ->
-                  AMQP.Basic.publish(channel, "", "matched_contact_id_#{matched_contact_id}", "Muje fa update la mesaje. ;)")
+                  AMQP.Basic.publish(channel, "", "profile_id_#{message_receiver}",
+                    Poison.encode!(%{message: message_text, matched_contact_id: matched_contact_id, message_owner: message_owner, message_receiver: message_receiver}))
                   AMQP.Connection.close(connection)
                   {:error, unkown_host} ->
                   Logger.debug inspect(unkown_host)
