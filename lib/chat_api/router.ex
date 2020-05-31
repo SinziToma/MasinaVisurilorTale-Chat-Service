@@ -18,6 +18,7 @@ defmodule Chats.Router do
 
   plug(:match)
 #  plug Profiles.AuthPlug
+  plug CORSPlug, origin: "*"
   plug(:dispatch)
 
   post "/get-by-matched-contact-id" do
