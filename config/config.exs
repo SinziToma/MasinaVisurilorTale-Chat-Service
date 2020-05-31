@@ -13,14 +13,14 @@ config :chats,
   api_host: "localhost",
   api_version: 2,
   api_prefix: "http",
-  match_service_url: "localhost:4000",
+  match_service_url: "https://elixir-match-service.azurewebsites.net",
   rabbitmq_host: "amqp://hiiscdyn:r82F2WHFvJ8cGyb6ZVabMbzvprfKk92O@rattlesnake.rmq.cloudamqp.com/hiiscdyn"
 
 config :chats, Chats.Repo,
   adapter: Ecto.Adapters.MySQL,
   database: "2yb27RXhgl",
   username: "2yb27RXhgl",
-  password: "MI1zFIUqQh",
+  password: "6Fl85GvmrE",
   hostname: "remotemysql.com"
 #  database: "masina_visurilor_tale",
 #  username: "root",
