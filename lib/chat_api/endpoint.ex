@@ -14,6 +14,7 @@ defmodule Chats.Endpoint do
     json_decoder: Poison
   )
 #  plug Profiles.AuthPlug
+  plug CORSPlug, origin: "*"
   plug(:dispatch)
 
   forward("/chat", to: Chats.Router)
