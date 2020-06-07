@@ -17,7 +17,7 @@ defmodule Chats.Router do
   plug(Plug.Logger, log: :debug)
 
   plug(:match)
-#  plug Chats.AuthPlug
+  plug Chats.AuthPlug
   plug CORSPlug, origin: "*"
   plug(:dispatch)
 
