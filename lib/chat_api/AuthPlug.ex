@@ -20,7 +20,7 @@ defmodule Chats.AuthPlug do
             token = raw_token
                       |> String.split(" ")
                       |> List.last()
-                validate_url = Application.get_env(:profiles, :account_service_url) <> "/account/validate-token"
+                validate_url = Application.get_env(:chats, :account_service_url) <> "/account/validate-token"
                 token_body =  Poison.encode!(%{token: token})
                 resp = HTTPotion.post  validate_url , [body: token_body, headers: ["Content-Type": "application/json"]]
                 Logger.debug inspect(resp)
